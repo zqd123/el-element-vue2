@@ -2,18 +2,21 @@
   <div id="app">
      <FormTable></FormTable>
      <TableForm></TableForm>
+<TB></TB>
   </div>
 </template>
 
 <script>
 import FormTable from './components/FormTable.vue'
 import TableForm from './components/TableForm.vue'
+import TB from './components/TB.vue'
 
 export default {
   name: 'App',
   components: {
     FormTable,
-    TableForm
+    TableForm,
+    TB
   }
 }
 </script>

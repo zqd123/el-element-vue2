@@ -7,7 +7,7 @@
       class="demo-ruleForm"
     >
       <el-table :data="ruleForm.tableData" style="width: 100%">
-        <el-table-column label="日期">
+        <el-table-column label="姓名" width="500">
           <template slot-scope="scope">
             <el-form-item
               :prop="'tableData.' + scope.$index + '.name'"
@@ -17,7 +17,7 @@
             </el-form-item>
           </template>
         </el-table-column>
-        <el-table-column label="姓名">
+        <el-table-column label="年龄" width="500">
           <template slot-scope="scope">
             <el-form-item
               :prop="'tableData.' + scope.$index + '.age'"
