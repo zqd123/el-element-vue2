@@ -1,24 +1,14 @@
 <template>
   <div class="table-block draggable">
-    <el-table
-      :data="tableList"
-      row-key="customId"
-      size="small"
-    >
+    <el-table :data="tableList" row-key="customId" size="small">
+      <el-table-column type="index" width="50"></el-table-column>
       <el-table-column prop="columnName" label="字段编码">
         <template slot-scope="scope">
-          <el-input
-            v-model="scope.row.columnName"
-            size="mini"
-          ></el-input>
+          <el-input v-model="scope.row.columnName" size="mini"></el-input>
         </template>
       </el-table-column>
-      <el-table-column
-        prop="columnType"
-        label="字段类型"
-        width="130"
-      >
-        <template slot-scope="scope">
+      <el-table-column prop="columnType" label="字段类型" width="130">
+        <!-- <template slot-scope="scope">
           <el-select
             size="mini"
             v-model="scope.row.columnType"
@@ -30,14 +20,10 @@
               :label="item.code"
             ></el-option>
           </el-select>
-        </template>
+        </template> -->
       </el-table-column>
-      <el-table-column
-        prop="sourceType"
-        label="来源形式"
-        width="130"
-      >
-        <template slot-scope="scope">
+      <el-table-column prop="sourceType" label="来源形式" width="130">
+        <!-- <template slot-scope="scope">
           <el-select
             size="mini"
             v-model="scope.row.sourceType"
@@ -50,11 +36,17 @@
               :label="item.label"
             ></el-option>
           </el-select>
-        </template>
+        </template> -->
       </el-table-column>
       <el-table-column prop="columnType" label="源字段">
         <template slot-scope="scope">
-          <el-select
+            <!-- {{ scope.row.sourceColumnName }} -->
+          <SourceFieldSelect
+            v-model="scope.row.sourceColumnName"
+            :sourceTableFields="sourceTableFields"
+            :customParameters="customParameters"
+          ></SourceFieldSelect>
+          <!-- <el-select
             size="mini"
             v-model="scope.row.sourceColumnName"
             filterable
@@ -75,12 +67,12 @@
                 :label="item.prop"
               ></el-option>
             </template>
-          </el-select>
+          </el-select> -->
         </template>
       </el-table-column>
 
       <el-table-column label="加密算法" width="130">
-        <template v-slot="{ row }">
+        <!-- <template v-slot="{ row }">
           <el-select
             size="mini"
             class="ruleId-select"
@@ -95,13 +87,9 @@
               :label="item.name"
             ></el-option>
           </el-select>
-        </template>
+        </template> -->
       </el-table-column>
-      <el-table-column
-        label="主键"
-        width="50"
-        align="center"
-      >
+      <el-table-column label="主键" width="50" align="center">
         <template v-slot="{ row }">
           <el-checkbox
             v-model="row.isPk"
@@ -109,20 +97,12 @@
           ></el-checkbox>
         </template>
       </el-table-column>
-      <el-table-column
-        label="分区"
-        width="70"
-        align="center"
-      >
+      <el-table-column label="分区" width="70" align="center">
         <template v-slot="{ row }">
           <el-checkbox v-model="row.isPartition"></el-checkbox>
         </template>
       </el-table-column>
-      <el-table-column
-        width="50px"
-        label="操作"
-        fixed="right"
-      >
+      <el-table-column width="50px" label="操作">
         <template slot-scope="scope">
           <div
             type="text"
@@ -139,7 +119,11 @@
 </template>
 
 <script>
+import SourceFieldSelect from "./components/SourceFieldSelect.vue";
 export default {
+  components: {
+    SourceFieldSelect,
+  },
   props: {
     //v-model值
     value: {
@@ -184,9 +168,9 @@ export default {
   data() {
     return {
       sourceTypeEnum: [
-  { code: 0, label: '接口返回' },
-  { code: 1, label: '自定义参数' },
-], // 来源类型
+        { code: 0, label: "接口返回" },
+        { code: 1, label: "自定义参数" },
+      ], // 来源类型
       tableList: [], //表字段
       previousSortable: {}, // 拖动实例
       // setInter: null, // 懒加载定时器
@@ -212,8 +196,7 @@ export default {
     },
   },
   methods: {
-    setPrimaryKey() {
-    },
+    setPrimaryKey() {},
     /**来源形式变更 */
     sourceTypeChange(row) {
       row.sourceColumnName = "";
