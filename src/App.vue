@@ -1,68 +1,13 @@
 <template>
   <div id="app">
-    <!-- <FormTable></FormTable>
-     <TableForm></TableForm>
-<TB></TB> -->
-    <el-select
-      size="mini"
-      v-model="currentSourceTable"
-      value-key="sourceTable"
-      @change="sourceTableChange"
-    >
-      <el-option
-        v-for="item in selectedTables"
-        :key="item.sourceTable"
-        :value="item"
-        :label="item.sourceTable"
-      ></el-option>
-    </el-select>
-    <SelectsInTable
-      v-model="currentSourceTable.mapping"
-      :isAutoCreateTable="currentSourceTable.isAutoCreateTable"
-      :fieldTypeList="fieldTypeList"
-      :securityRuleIdList="securityRuleIdList"
-      :sourceTableFields="currentSourceTable.sourceTableFields"
-      :customParameters="[]"
-      destDatabaseType="HIVE"
-    ></SelectsInTable>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> ｜
+      <router-link to="/bigTable">表格大数据</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-// import FormTable from './components/FormTable.vue'
-// import TableForm from './components/TableForm.vue'
-// import TB from './components/TB.vue'
-import SelectsInTable from "./tablePerformance/SelectsInTable";
-import {
-  dataSyncInfoList,
-  fieldTypeList,
-  securityRuleIdList,
-} from "./tablePerformance/data";
-
-export default {
-  name: "App",
-  components: {
-    // FormTable,
-    // TableForm,
-    // TB,
-    SelectsInTable,
-  },
-  data() {
-    return {
-      currentSourceTable: {},
-      selectedTables: dataSyncInfoList,
-      fieldTypeList,
-      securityRuleIdList,
-    };
-  },
-  methods: {
-    sourceTableChange(v) {
-      console.log(v);
-      this.currentSourceTable = v;
-    },
-  },
-};
-</script>
 
 <style>
 #app {
@@ -71,6 +16,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
