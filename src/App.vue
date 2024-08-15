@@ -3,7 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> ｜
-      <router-link to="/bigTable">表格大数据</router-link>
+      <router-link to="/bigTable">表格大数据</router-link> |
+      <router-link to="/upDirectory">上传文件夹</router-link>
+
     </div>
     <router-view/>
   </div>

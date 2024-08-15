@@ -22,6 +22,11 @@ const routes = [
     path: '/bigTable',
     name: 'bigTable',
     component: () => import('../views/tablePerformance/TableIndex.vue')
+  },
+  {
+    path: '/upDirectory',
+    name: 'upDirectory',
+    component: () => import('../views/UpDirectory.vue')
   }
 ]
 
