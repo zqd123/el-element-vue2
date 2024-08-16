@@ -27,6 +27,11 @@ const routes = [
     path: '/upDirectory',
     name: 'upDirectory',
     component: () => import('../views/UpDirectory.vue')
+  },
+  {
+    path: '/zipFile',
+    name: 'zipFile',
+    component: () => import('../views/ZipFile.vue')
   }
 ]
 
