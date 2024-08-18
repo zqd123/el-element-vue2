@@ -2,11 +2,16 @@
   <div>
     <input type="file" webkitdirectory @change="handleFileSelect" />
     <VueSimpleUploader></VueSimpleUploader>
+    <div>
+      <div>element-ui上传组件：</div>
+      <ELUploadFile> </ELUploadFile>
+    </div>
   </div>
 </template>
 
 <script setup>
 import VueSimpleUploader from "./VueSimpleUploader";
+import ELUploadFile from "../uploadFile/ELUploadFile.vue";
 function handleFileSelect(event) {
   // 处理选择的文件夹
   const files = event.target.files;
