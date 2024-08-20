@@ -32,6 +32,11 @@ const routes = [
     path: '/zipFile',
     name: 'zipFile',
     component: () => import('../views/ZipFile.vue')
+  },
+  {
+    path: '/multiRequest',
+    name: 'multiRequest',
+    component: () => import('../views/concurrenceRequest/MultiRequest.vue')
   }
 ]
 
