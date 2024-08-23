@@ -1,6 +1,36 @@
 <template>
   <div>
-    <div style="width: max-content">
+    <div class="all-page" style="width: max-content">
+      <div class="protocol-page">
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+      </div>
+      <div class="protocol-page">
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+      </div>
+      <div class="protocol-page">
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+        <div>page-1</div>
+      </div>
       <div class="protocol-page">
         <div>page-1</div>
         <div>page-1</div>
@@ -17,11 +47,13 @@
       <div class="protocol-page">page-5</div>
     </div>
     <el-button type="primary" @click="downloadPdf">下载pdf</el-button>
+    <el-button type="primary" @click="downloadPdf2">下载pdf2</el-button>
   </div>
 </template>
 <script setup>
 import html2Canvas from "html2canvas";
 import JsPDF from "jspdf";
+import { getPdf} from './htmlToPdf'
 /**
  * 创建canvas
  */
@@ -67,5 +99,10 @@ async function downloadPdf() {
       pdf.addPage();
     }
   }
+}
+
+function downloadPdf2() {
+  const dom = document.querySelectorAll(".all-page")[0];
+  getPdf(dom,'tt')
 }
 </script>
