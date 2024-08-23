@@ -8,6 +8,7 @@
       <router-link to="/zipFile">压缩文件</router-link> |
       <router-link to="/multiRequest">请求并发控制</router-link> |
       <router-link to="/backColor">背景动态条纹</router-link> |
+      <router-link to="/downloadPdf">下载pdf</router-link> |
     </div>
     <router-view />
   </div>

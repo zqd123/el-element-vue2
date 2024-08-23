@@ -44,6 +44,11 @@ const routes = [
     name: "backColor",
     component: () => import("../views/backGroundColor/backColor.vue"),
   },
+  {
+    path: "/downloadPdf",
+    name: "downloadPdf",
+    component: () => import("../views/downloadPdf/DownloadPdf.vue"),
+  },
 ];
 
 const router = new VueRouter({
